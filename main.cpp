@@ -182,7 +182,7 @@ int main()
 
         fout<<i+1<<" | ";
 
-        // Timp + corectitudine bubble sort
+        // Timp + corectitudine Bubble Sort
 
         start = acum();
 
@@ -200,7 +200,7 @@ int main()
 
         fout<<" | ";
 
-        // Timp + corectitudine count sort
+        // Timp + corectitudine Counting Sort
 
         start = acum();
 
@@ -218,7 +218,7 @@ int main()
 
         fout<<" | ";
 
-        // Timp + corectitudine merge sort
+        // Timp + corectitudine Merge Sort
 
         start = acum();
 
@@ -236,7 +236,7 @@ int main()
 
         fout<<" | ";
 
-        // Timp + corectitudine radix sort
+        // Timp + corectitudine Radix Sort
 
         start = acum();
 
@@ -254,7 +254,7 @@ int main()
 
         fout<<" | ";
 
-        // Timp + corectitudine quick sort
+        // Timp + corectitudine Quick Sort
 
         start = acum();
 
