@@ -125,7 +125,7 @@ std::vector<int> cntdig(std::vector<int> vec, int exp)
     return rez;
 }
 
-// Combinare (auxiliar pentru Merge Sort
+// Combinare (auxiliar pentru Merge Sort)
 void combin(std::vector<int> &vec, int st, int m, int dr)
 {
     int nrs=m-st+1, nrd=dr-m;
