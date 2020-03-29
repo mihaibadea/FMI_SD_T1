@@ -21,14 +21,11 @@ bool bicheck(std::vector<int> init, std::vector<int> fin)
 {
     if(init.size()!=fin.size()) return false;
 
-    std::vector<int> tmp = init;
-
-    std::sort(tmp.begin(), tmp.end());
+    std::sort(init.begin(), init.end());
 
     for(int i=1; i<fin.size(); i++)
     {
-        if(tmp[i]!=fin[i]) return false;
-        if(fin[i]<fin[i-1]) return false;
+        if(init[i]!=fin[i]) return false;
     }
 
     return true;
