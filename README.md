@@ -1,4 +1,4 @@
-# Tema nr. 1 – Structuri de date
+# Structuri de date – Tema nr. 1  
 
 Proiectul de față conține implementări ale următorilor algoritmi de ordonare:
 - Bubble Sort
