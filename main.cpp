@@ -195,15 +195,32 @@ std::vector<int> mrgw(std::vector<int> vec)
 }
 
 // Quick Sort
-void quick(std::vector<int> &vec)
+void quick(std::vector<int> &vec, int st, int dr)
 {
-    //
+    if(st<dr)
+    {
+        int pivot = vec[dr], i=st-1;
+
+        for(int j=st; j<dr; j++)
+        {
+            if(vec[j] < pivot)
+            {
+                i++;
+                std::swap(vec[i], vec[j]);
+            }
+        }
+
+        std::swap(vec[i+1], vec[dr]);
+
+        quick(vec,st,i);
+        quick(vec,i+2,dr);
+    }
 }
 
 // Quick Sort wrapper
 std::vector<int> quickw(std::vector<int> vec)
 {
-    quick(vec);
+    quick(vec,0,vec.size()-1);
     return vec;
 }
 
