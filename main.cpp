@@ -57,13 +57,22 @@ int acum()
 std::vector<int> bubble(std::vector<int> vec)
 {
     std::vector<int> rez = vec;
+    bool sch;
 
-    for(int i=0; i<rez.size(); i++)
+    for(int i=0; i<rez.size()-1; i++)
     {
-        for(int j=0; j<rez.size(); j++)
+        sch=false;
+
+        for(int j=0; j<rez.size()-i-1; j++)
         {
-            if(rez[i]<rez[j]) std::swap(rez[i],rez[j]);
+            if(rez[j]>rez[j+1])
+            {
+                std::swap(rez[j],rez[j+1]);
+                sch=true;
+            }
         }
+
+        if(!sch) break;
     }
 
     return rez;
