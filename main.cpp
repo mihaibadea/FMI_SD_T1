@@ -56,18 +56,17 @@ int acum()
 // Bubble sort
 std::vector<int> bubble(std::vector<int> vec)
 {
-    std::vector<int> rez = vec;
     bool sch;
 
-    for(int i=0; i<rez.size()-1; i++)
+    for(int i=0; i<vec.size()-1; i++)
     {
         sch=false;
 
-        for(int j=0; j<rez.size()-i-1; j++)
+        for(int j=0; j<vec.size()-i-1; j++)
         {
-            if(rez[j]>rez[j+1])
+            if(vec[j]>vec[j+1])
             {
-                std::swap(rez[j],rez[j+1]);
+                std::swap(vec[j],vec[j+1]);
                 sch=true;
             }
         }
@@ -75,7 +74,7 @@ std::vector<int> bubble(std::vector<int> vec)
         if(!sch) break;
     }
 
-    return rez;
+    return vec;
 }
 
 // Counting sort prin recreare
@@ -145,18 +144,16 @@ std::vector<int> quick(std::vector<int> vec)
 // Radix sort
 std::vector<int> radix(std::vector<int> vec)
 {
-    std::vector<int> rez = vec;
-
     int m=maxelem(vec), exp=1;
 
     while(m>0)
     {
-        rez=cntdig(rez, exp);
+        vec=cntdig(vec, exp);
         m=m/10;
         exp=exp*10;
     }
 
-    return rez;
+    return vec;
 }
 
 
