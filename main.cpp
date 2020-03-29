@@ -125,21 +125,88 @@ std::vector<int> cntdig(std::vector<int> vec, int exp)
     return rez;
 }
 
-// Merge sort
-std::vector<int> mrg(std::vector<int> vec)
+// Combinare (auxiliar pentru Merge Sort
+void combin(std::vector<int> &vec, int st, int m, int dr)
 {
-    std::vector<int> rez = vec;
-    //
-    return rez;
+    int nrs=m-st+1, nrd=dr-m;
+    std::vector<int> s, d;
+
+    for(int i=0; i<nrs; i++)
+    {
+        s.push_back(vec[st+i]);
+    }
+
+    for(int i=0; i<nrd; i++)
+    {
+        d.push_back(vec[m+i+1]);
+    }
+
+    int i=0, j=0, k=st;
+
+    while(i<nrs && j<nrd)
+    {
+        if(s[i]<=d[j])
+        {
+            vec[k]=s[i];
+            i++;
+        }
+        else if(j<nrd)
+        {
+            vec[k]=d[j];
+            j++;
+        }
+        k++;
+    }
+
+    while(i<nrs)
+    {
+        vec[k]=s[i];
+        i++;
+        k++;
+    }
+
+    while(j<nrd)
+    {
+        vec[k]=d[j];
+        j++;
+        k++;
+    }
+
 }
 
-// Quick sort
-std::vector<int> quick(std::vector<int> vec)
+// Merge Sort
+void mrg(std::vector<int> &vec, int st, int dr)
 {
-    std::vector<int> rez = vec;
-    //
-    return rez;
+    if(st<dr)
+    {
+        int m = (st+dr)/2;
+
+        mrg(vec, st, m);
+        mrg(vec, m+1, dr);
+        combin(vec,st,m,dr);
+    }
 }
+
+// Merge Sort wrapper
+std::vector<int> mrgw(std::vector<int> vec)
+{
+    mrg(vec, 0, vec.size()-1);
+    return vec;
+}
+
+// Quick Sort
+void quick(std::vector<int> &vec)
+{
+    //
+}
+
+// Quick Sort wrapper
+std::vector<int> quickw(std::vector<int> vec)
+{
+    quick(vec);
+    return vec;
+}
+
 
 // Radix sort
 std::vector<int> radix(std::vector<int> vec)
@@ -228,7 +295,7 @@ int main()
 
         start = acum();
 
-        rez = mrg(vec);
+        rez = mrgw(vec);
 
         stop = acum();
 
@@ -264,7 +331,7 @@ int main()
 
         start = acum();
 
-        rez = quick(vec);
+        rez = quickw(vec);
 
         stop = acum();
 
@@ -273,7 +340,6 @@ int main()
         fout<<" | ";
 
         fout<<bicheck(vec,rez);
-
 
 
         // Delimitator
